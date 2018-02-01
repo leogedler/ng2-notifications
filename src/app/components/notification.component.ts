@@ -89,6 +89,7 @@ export class PushNotificationComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   public close (notification): void {
+    if(typeof notification.close !== "function") return;
     if (this.closeDelay) {
       setTimeout(() => {
         notification.close();
